@@ -1,1 +1,1 @@
-<h2>word-subsets Notes</h2><hr>we can solve this problem via hash or unr
+<h2>word-subsets Notes</h2><hr>we can solve this problem via hash or unordered
