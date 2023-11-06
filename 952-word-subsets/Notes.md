@@ -1,1 +1,1 @@
-<h2>word-subsets Notes</h2><hr>we can solve this problem with hash o unordered_map
+<h2>word-subsets Notes</h2><hr>we can solve this problem with hash and also unordered_map
