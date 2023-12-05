@@ -26,10 +26,21 @@ public:
 
 
         // method-3
-        unordered_map<int, int> mpp;
+        // unordered_map<int, int> mpp;
+        // for(int i = 0; i < n; i++) {
+        //     mpp[nums[i]]++;
+        //     if(mpp[nums[i]] > 1) return true;
+        // }
+        // return false;
+
+        
+        // method-4
+        unordered_set<int> st;
         for(int i = 0; i < n; i++) {
-            mpp[nums[i]]++;
-            if(mpp[nums[i]] > 1) return true;
+            if(st.find(nums[i]) != st.end()) {
+                return true;
+            }
+            st.insert(nums[i]);
         }
         return false;
     }
