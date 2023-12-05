@@ -14,12 +14,22 @@ public:
         // }
         // return false;
 
+
         // method-2
-        sort(nums.begin(), nums.end());
-        for(int i = 0; i < n-1; i++) {
-            if(nums[i] == nums[i+1]) {
-                return true;
-            }
+        // sort(nums.begin(), nums.end());
+        // for(int i = 0; i < n-1; i++) {
+        //     if(nums[i] == nums[i+1]) {
+        //         return true;
+        //     }
+        // }
+        // return false;
+
+
+        // method-3
+        unordered_map<int, int> mpp;
+        for(int i = 0; i < n; i++) {
+            mpp[nums[i]]++;
+            if(mpp[nums[i]] > 1) return true;
         }
         return false;
     }
