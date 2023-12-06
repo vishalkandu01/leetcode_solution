@@ -43,7 +43,9 @@ public:
             if(mpp.find(target-nums[i]) != mpp.end()) {
                 return {i, mpp[target - nums[i]]};
             }
-            mpp[nums[i]] = i;
+            
+            // mpp[nums[i]] = i;
+            mpp.insert({nums[i], i});
         }
         return {-1,-1};
     }
