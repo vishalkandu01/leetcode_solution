@@ -36,20 +36,34 @@ public:
         // return intervals;
 
 
-        // method-2
+        // // method-2
+        // sort(intervals.begin(), intervals.end());
+        // int index = 0;
+        // for(int i = 1; i < n; i++) {
+        //     if(intervals[index][1] >= intervals[i][0]) {
+        //         intervals[index][1] = max(intervals[index][1], intervals[i][1]);
+        //         intervals.erase(intervals.begin()+i);
+        //         n = intervals.size();
+        //         i--; // use this as a testcase if you don't know why it is written [[1,4],[0,2],[3,5]]
+        //     }
+        //     else {
+        //         index++;
+        //     }
+        // }
+        // return intervals;
+
+
+        // method-3
         sort(intervals.begin(), intervals.end());
-        int index = 0;
-        for(int i = 1; i < n; i++) {
-            if(intervals[index][1] >= intervals[i][0]) {
-                intervals[index][1] = max(intervals[index][1], intervals[i][1]);
-                intervals.erase(intervals.begin()+i);
-                n = intervals.size();
-                i--;
+        vector<vector<int>> ans;
+        for(int i = 0; i < n; i++) {
+            if(ans.empty() || ans.back()[1] < intervals[i][0]) {
+                ans.push_back(intervals[i]);
             }
             else {
-                index++;
+                ans.back()[1] = max(ans.back()[1], intervals[i][1]);
             }
         }
-        return intervals;
+        return ans;
     }
 };
