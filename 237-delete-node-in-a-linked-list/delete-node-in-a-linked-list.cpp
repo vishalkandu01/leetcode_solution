@@ -22,7 +22,8 @@ public:
         swap(node->val, node->next->val);
         ListNode* temp = node->next;
         node->next = node->next->next;
-        delete temp;
+        temp -> next = NULL;
+        delete temp; // you can remove delete as well from here because of question but doing delete is a good practice
         return;
     }
 };
