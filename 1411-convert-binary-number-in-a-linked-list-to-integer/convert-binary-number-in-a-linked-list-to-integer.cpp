@@ -49,19 +49,30 @@ public:
 
 
         // method-3
-        int length = 0;
+        // int length = 0;
+        // ListNode* temp = head;
+        // while(temp != NULL) {
+        //     length++;
+        //     temp = temp -> next;
+        // }
+        // cout << length;
+        // int ans = 0;
+        // temp = head;
+        // int i = 1;
+        // while(temp != NULL) {
+        //     ans += temp->val * pow(2, length-i);
+        //     i++;
+        //     temp = temp -> next;
+        // }
+        // return ans;
+
+
+        // method-4
+        int ans = 0;
         ListNode* temp = head;
         while(temp != NULL) {
-            length++;
-            temp = temp -> next;
-        }
-        cout << length;
-        int ans = 0;
-        temp = head;
-        int i = 1;
-        while(temp != NULL) {
-            ans += temp->val * pow(2, length-i);
-            i++;
+            ans *= 2;
+            ans += temp -> val;
             temp = temp -> next;
         }
         return ans;
