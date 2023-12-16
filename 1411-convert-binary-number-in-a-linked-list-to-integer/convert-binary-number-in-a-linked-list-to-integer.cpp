@@ -28,22 +28,41 @@ public:
 
 
         // method-2
-        ListNode* curr = head;
-        ListNode *prev = NULL, *next = NULL;
-        while(curr != NULL) {
-            next = curr -> next;
-            curr -> next = prev;
-            prev = curr;
-            curr = next;
+        // ListNode* curr = head;
+        // ListNode *prev = NULL, *next = NULL;
+        // while(curr != NULL) {
+        //     next = curr -> next;
+        //     curr -> next = prev;
+        //     prev = curr;
+        //     curr = next;
+        // }
+        // head = prev;
+        // int ans = 0;
+        // int i = 0;
+        // curr = head;
+        // while(curr != NULL) {
+        //     ans += curr->val * pow(2, i);
+        //     i++;
+        //     curr = curr -> next;
+        // }
+        // return ans;
+
+
+        // method-3
+        int length = 0;
+        ListNode* temp = head;
+        while(temp != NULL) {
+            length++;
+            temp = temp -> next;
         }
-        head = prev;
+        cout << length;
         int ans = 0;
-        int i = 0;
-        curr = head;
-        while(curr != NULL) {
-            ans += curr->val * pow(2, i);
+        temp = head;
+        int i = 1;
+        while(temp != NULL) {
+            ans += temp->val * pow(2, length-i);
             i++;
-            curr = curr -> next;
+            temp = temp -> next;
         }
         return ans;
     }
