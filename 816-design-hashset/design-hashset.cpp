@@ -20,7 +20,6 @@ public:
 
 
     // method-2
-
     vector<list<int>> hash;
     int size;
     MyHashSet() {
