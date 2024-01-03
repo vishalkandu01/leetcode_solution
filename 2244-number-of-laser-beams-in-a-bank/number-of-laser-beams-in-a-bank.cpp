@@ -24,23 +24,37 @@ public:
   
   
         // method-2
+        // int ans = 0;
+        // vector<int> v;
+        // for(auto it : bank) {
+        //     string str = it;
+        //     int cnt = 0;
+        //     for(int i = 0; i < str.size(); i++) {
+        //         if(str[i] == '1') {
+        //             cnt++;
+        //         }
+        //     }
+        //     if(cnt != 0) {
+        //         v.push_back(cnt);
+        //     }
+        // }
+        // for(int i = 1; i < v.size(); i++) {
+        //     int t = v[i] * v[i-1];
+        //     ans += t;
+        // }
+        // return ans;
+
+
+        // method-3
         int ans = 0;
-        vector<int> v;
-        for(auto it : bank) {
-            string str = it;
-            int cnt = 0;
-            for(int i = 0; i < str.size(); i++) {
-                if(str[i] == '1') {
-                    cnt++;
-                }
+        int temp = 0;
+        for(int i = 0; i < bank.size(); i++) {
+            int n = count(bank[i].begin(), bank[i].end(), '1');
+            if(n == 0) {
+                continue;
             }
-            if(cnt != 0) {
-                v.push_back(cnt);
-            }
-        }
-        for(int i = 1; i < v.size(); i++) {
-            int t = v[i] * v[i-1];
-            ans += t;
+            ans += temp * n;
+            temp = n;
         }
         return ans;
     }
