@@ -41,11 +41,31 @@ public:
 
 public:
     ListNode* deleteDuplicates(ListNode* head) {
-        if(head == NULL) {
-            return NULL;
+        // if(head == NULL) {
+        //     return NULL;
+        // }
+        // ListNode* newlist = new ListNode();
+        // solve(head, newlist, 1);
+        // return newlist -> next;
+
+
+        if(head == NULL || head -> next == NULL) return head;
+        ListNode* temp = head;
+        map<int, int> mpp;
+        while(temp != NULL) {
+            mpp[temp -> val]++;
+            temp = temp -> next;
         }
-        ListNode* newlist = new ListNode();
-        solve(head, newlist, 1);
-        return newlist -> next;
+
+        ListNode* dummyHead = new ListNode(-1);
+        ListNode* dummy = dummyHead;
+        for(auto nodeVal : mpp) {
+            if(nodeVal.second == 1) {
+                ListNode* node = new ListNode(nodeVal.first);
+                dummy -> next = node;
+                dummy = dummy -> next;
+            }
+        }
+        return dummyHead -> next;
     }
 };
